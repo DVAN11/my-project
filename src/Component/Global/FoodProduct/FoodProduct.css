@@ -46,12 +46,6 @@
     width: 80%;
     font-size: 12px;
     background-color: transparent;
-    border: 1px solid var(--primarycolor);
     color: var(--primarycolor);
-    border-radius: 8px;
+    border: none;
 }
-.btnn:hover{
-    background-color: var(--primarycolor);
-    border: 1px solid var(--secondarycolor);
-    color: var(--secondarycolor);
-} 

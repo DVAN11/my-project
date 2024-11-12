@@ -12,7 +12,7 @@ const Cart = () => {
     return (
         <Container fluid>
             <Row>
-                <Col lg={6}>
+                <Col xs={12} lg={6} className='left'>
                     <div className='cart'>
                         {cart.map((item, index) => (
                             <div className="box-cart">
@@ -74,7 +74,7 @@ const Cart = () => {
                         </div>
                     </div>
                 </Col>
-                <Col lg={6}><Order></Order></Col>
+                <Col xs={12} lg={6} className='right'><Order></Order></Col>
             </Row>
         </Container>
 

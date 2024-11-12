@@ -4,10 +4,6 @@ import { UseCart } from '../../../Context/Context';
 import './FoodProduct.css';
 
 const FoodProduct = ({ id, imageUrl, title, price, ingredients }) => {
-    const { handleAddCart, cart } = UseCart();
-    console.log(cart);
-     
-
     return (
         <>
             <Card key={id} className='card-product'>
@@ -23,7 +19,6 @@ const FoodProduct = ({ id, imageUrl, title, price, ingredients }) => {
                         </Card.Text>
                         <button
                             className="btnn"
-                            onClick={() => handleAddCart({ id, imageUrl, title, price, ingredients }, 1)}
                         >
                             VIEW DETAIL
                         </button>

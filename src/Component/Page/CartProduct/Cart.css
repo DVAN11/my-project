@@ -1,8 +1,9 @@
+
 .cart {
     margin-top: 120px;
 }
 .box-cart {
-    width: 80%;
+    width: 100%;
     margin: 16px auto;
 }
 .cart-item {
@@ -28,7 +29,7 @@
     margin-bottom: 16px;
 }
 .cart-item .item_content .content_top .info {
-    width: 80%;
+    width: 100%;
 }
 .title-cart {
     font-size: 20px;
@@ -99,7 +100,7 @@
     padding: 10px 10px 1px;
     border-radius: 8px;
     box-shadow: 2px 2px 8px rgba(140, 140, 140, 0.6);
-    width: 80%;
+    width: 100%;
     margin: 16px auto;
 }
 .s_total .title {

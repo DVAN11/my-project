@@ -7,6 +7,7 @@ import Booking from './Component/Page/BookingService/Booking';
 import Cart from './Component/Page/CartProduct/Cart';
 import About from './Component/Page/About/About';
 import BookingForm from './Component/Global/BookingForm/BookingForm';
+import Contact from './Component/Page/Contact/Contact';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/menu/:slug" element={<Menu />}/>
         <Route path="/about" element={<About />}/>
         <Route path='/cart' element={<Cart/>}></Route>
+        <Route path='/contact' element={<Contact/>}></Route>
       </Routes>
       <BookingForm />
       <Footer />
