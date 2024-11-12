@@ -1,0 +1,64 @@
+.card-food {
+    margin: 16px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    width: 50%;
+}
+
+.card-food:hover {
+    transform: scale(1.02);
+}
+
+.food {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+.images img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.des {
+    flex: 1;
+    padding-left: 16px;
+}
+.des-title{
+    display: flex;
+    justify-content: space-between;
+}
+.des-title h5 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--primarycolor);
+}
+
+.des-title h6 {
+    margin: 4px 0;
+    font-size: 20px;
+    color: var(--primarycolor);
+}
+.des-intro{
+    display: flex;
+    justify-content: space-between;
+}
+.des-intro p {
+    margin: 10px 0 0;
+    color: azure;
+    font-size: 16px;
+    width: 320px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.des-intro button{
+    font-size: 12px;
+    border: 1px solid var(--primarycolor);
+    color: var(--primarycolor);
+    background-color: transparent;
+}

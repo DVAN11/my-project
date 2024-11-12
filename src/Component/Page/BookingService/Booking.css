@@ -1,0 +1,82 @@
+.booking-section {
+    background-color: var(--secondarycolor);
+    margin-top: 140px;
+  }
+  
+.service-row {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+   .service-row.reverse-order {
+    flex-direction: row-reverse;
+  }
+  
+.service-video-col {
+    padding: 0;
+  }
+  
+  .service-video iframe {
+    width: 100%;
+    height: 315px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .service-details-col {
+    padding: 20px;
+    background-color: var(--secondarycolor);
+    border-radius: 8px;
+    color: azure;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .service-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primarycolor);
+    margin-bottom: 8px;
+  }
+  
+  .service-description {
+    font-size: 16px;
+    color: azure;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .service-offer {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--primarycolor);
+    margin-bottom: 20px;
+  }
+  
+  .service-highlights ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .service-highlights li {
+    font-size: 16px;
+    color: azure;
+    margin-bottom: 8px;
+  }
+  
+  .btn-booking {
+    color: var(--primarycolor);
+    border: 1px solid var(--primarycolor);
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-booking:hover {
+    background-color: var(--primarycolor);
+  }
+  

@@ -1,0 +1,100 @@
+.about-us {
+    padding: 40px 0;
+    color: azure;
+}
+
+.about-us h3{
+    font-size: 20px;
+    color: var(--primarycolor);
+}
+.about-us p, li{
+    font-size: 16px;
+}
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: url('https://elementor.deverust.com/foodseas/wp-content/uploads/sites/19/2022/02/baiq-daling-vuZJ1VRHNF4-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+
+}
+
+
+.video-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.video-btn {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--primarycolor);
+    color: var(--primarycolor);
+    transition: background-color 0.3s;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+}
+
+.video-btn:hover {
+    scale: 1.2;
+    filter: brightness(1.2);
+}
+
+.icon-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.icon-list li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.icon-list i {
+    margin-right: 10px;
+    color: var(--primarycolor);
+}
+
+.modal-header {
+    background-color: var(--primarycolor);
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+iframe {
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .about-us {
+        padding: 30px 0;
+    }
+
+    .video-btn {
+        width: 100%;
+    }
+}
+

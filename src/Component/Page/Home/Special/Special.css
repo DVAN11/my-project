@@ -1,0 +1,82 @@
+
+h2 {
+    text-align: center;
+    margin: 40px;
+    font-size: 32px;
+    color: var(--primarycolor);
+}
+
+.experience-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.experience-col {
+    margin-bottom: 24px;
+}
+
+.card-custom {
+    background-color: #111;
+    border: 1px solid #333;
+    box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 450px;
+    overflow: hidden;
+}
+.card-img-top{
+    height: 200px;
+    object-fit: cover;
+    transition: 0.5s;
+    margin-bottom: 16px;
+}
+.card-custom:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 10px var(--primarycolor);
+}
+.card-custom:hover .card-img-top {
+    scale: 1.2;
+}
+
+.card-title{
+    color: var(--primarycolor);
+    font-size: 20px;
+}
+.card-description {
+    color: #fff;
+    font-size: 16px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.card-footer .btn-custom {
+    width: 50%;
+    border: 1px solid var(--primarycolor);
+    background-color: var(--secondarycolor);
+    color: var(--primarycolor);
+    transition: box-shadow 0.3s ease;
+    border-radius: 8px;
+    font-size: 12px;
+    padding: 8px;
+    margin: 0 auto;
+}
+.card-footer .btn-custom:hover {
+    background-color: var(--primarycolor);
+    color: var(--secondarycolor);
+}
+.fa-circle-info{
+    position: absolute;
+    font-size: 32px;
+    bottom: 12px;
+    right: 12px;
+    color: var(--primarycolor);
+    transition: 0.3s ease;
+}
+.fa-circle-info:hover{
+    scale: 1.3;
+}
+

@@ -1,0 +1,128 @@
+.team-section {
+    background-color: var(--secondarycolor);
+    color: azure;
+    padding: 40px 0;
+}
+
+.team-headline h4, .team-headline h2 {
+    color: var(--primarycolor);
+    transition: color 0.3s ease;
+}
+
+.team-slide img,
+.team-food-slide img {
+    width: 100%;
+    height: auto;
+    filter: brightness(0.7);
+    transition: filter 0.3s ease;
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.team-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.team-image img {
+    width: 100%;
+    height: auto;
+    filter: brightness(0.85);
+}
+
+.team-image:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.65);
+}
+
+.team-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+.team-image:hover .team-title {
+    opacity: 1;
+}
+
+.team-title ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.team-title li {
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.team-image:hover .team-title li {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.team-title li a {
+    color: var(--primarycolor);
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.team-title li a:hover {
+    transform: scale(1.2);
+}
+
+.team-card {
+    background-color: #222;
+    color: azure;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.team-card .team-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    text-align: left;
+}
+
+.team-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--primarycolor);
+    margin-bottom: 16px;
+}
+
+.team-card-subtitle h6 {
+    color: var(--primarycolor);
+    font-size: 14px;
+}
+
+.team-card-text {
+    font-size: 12px;
+}

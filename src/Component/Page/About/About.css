@@ -1,0 +1,90 @@
+.about-page {
+    color: #f8f8f2;
+    background-color: var(--secondarycolor);
+    margin-top: 96px;
+  }
+  
+  .about-banner {
+    text-align: center;
+    padding: 60px 20px;
+    background-image: url('https://www.cukcuk.vn/wp-content/uploads/2022/07/nha%CC%A3%CC%82t-02.png');
+    background-size: cover;
+    background-position: center;
+  } 
+  
+  .about-banner h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--primarycolor);
+
+  }
+  
+  .about-banner p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: azure;
+  }
+  
+  .about-section {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .about-text h2 {
+    font-size: 32px;
+    color: var(--primarycolor);
+    margin-bottom: 20px;
+  }
+  
+  .about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 800px;
+  }
+  
+  .team-member {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--secondarycolor);
+    border-radius: 8px;
+  }
+  
+  .team-member h3 {
+    font-size: 24px;
+    color: var(--primarycolor);
+    margin-bottom: 10px;
+  }
+  
+  .team-member p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: azure;
+  }
+  .why-choose-us {
+    text-align: center;
+    padding: 40px 0;
+  }
+  
+  .why-choose-item {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .icon {
+    width: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .gallery-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  

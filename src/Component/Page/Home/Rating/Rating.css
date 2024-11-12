@@ -1,0 +1,54 @@
+.rating-slider {
+    padding: 20px 0;
+    margin: 0 auto;
+}
+.slick-slide{
+    padding: 0 16px;
+}
+.rating-item {
+    border-radius: 10px;
+    border: 1px solid rgb(133, 133, 133);
+    padding: 16px;
+}
+
+.rating-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.rating-text {
+    flex: 1;
+}
+
+.stars {
+    padding: 0;
+    display: flex;
+    margin: 4px 4px 10px;
+    height: 5px;
+    color: rgb(211, 211, 0);
+    align-items: center;
+    justify-content: flex-start;
+    margin: 16px 0;
+}
+
+.stars li {
+    margin-right: 5px;
+}
+
+.rating-text h5 {
+    margin: 0;
+    color: azure;
+    font-size: 20px;
+}
+
+.rating-text span {
+    display: block;
+    color: azure;
+    font-size: 12px;
+}
+
+.rating-text p {
+    color: azure;
+    font-size: 16px;
+}

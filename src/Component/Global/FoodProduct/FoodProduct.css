@@ -1,0 +1,57 @@
+.type-name{
+    color: azure;
+    font-size: 20px;
+    margin: 32px 0;
+}
+.card-product{
+    margin-bottom: 16px;
+}
+.filter-menu{
+    border: 1px solid azure;
+    margin-right: 16px;
+    padding: 4px 16px;
+    border-radius: 4px;
+    color: azure;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3);
+}
+.filter-menu:hover{
+    box-shadow: 2px 2px 8px var(--primarycolor);
+}
+.card{
+    background-color: var(--secondarycolor);
+    border: 1px solid #333;
+    box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3);
+    transition: 0.5s;
+    height:auto;
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+.card:hover{
+    box-shadow: 2px 2px 8px var(--primarycolor);
+    transform: translateY(-10px);
+}
+.foot{
+    display: flex;
+}
+.card-text{
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: azure;
+}
+
+.btnn{
+    width: 80%;
+    font-size: 12px;
+    background-color: transparent;
+    border: 1px solid var(--primarycolor);
+    color: var(--primarycolor);
+    border-radius: 8px;
+}
+.btnn:hover{
+    background-color: var(--primarycolor);
+    border: 1px solid var(--secondarycolor);
+    color: var(--secondarycolor);
+} 
