@@ -11,14 +11,17 @@ const Order = () => {
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistricts] = useState([]);
   const { cart } = UseCart() || { cart: [] };
-  console.log(cart);
+  const myCartString =  cart.map(item => `${item.title} (x${item.quantity}) - $${item.price}`).join(", ");
   
   useEffect(() => {
     axios.get("https://provinces.open-api.vn/api/p/")
-      .then(response => {
-        setProvinces(response.data);
-      })
-      .catch(error => console.error("Error fetching provinces:", error));
+    .then(response => {
+      const filteredProvinces = response.data.filter(province => 
+        province.name === "Thành phố Hồ Chí Minh" || province.name === "Tỉnh Vĩnh Long"
+      );
+      setProvinces(filteredProvinces);
+    })
+    .catch(error => console.error("Error fetching provinces:", error));
   }, []);
 
   const handleProvinceChange = (event) => {
@@ -34,40 +37,69 @@ const Order = () => {
   const handleDeliveryChange = (event) => {
     formik.setFieldValue("deliveryMethod", event.target.value);
   };
-
+  useEffect(() => {
+    formik.setFieldValue("mycart", myCartString);
+  }, [cart])
   const formik = useFormik({
     initialValues: {
       deliveryMethod: "delivery",
       user_name: "",
       user_email: "",
-      Time: "",
+      time: "",
       message: "",
       payment_method: "",
       province: "",
       district: "",
       address: "",
-      mycart: cart.length > 0 ? cart.map((item) => `${item.title} - ${item.quantity} - ${item.price}`).join(", ") : "",
+      mycart: "",
     },
     validationSchema: Yup.object({
       user_name: Yup.string().required("Required"),
       user_email: Yup.string().email("Invalid email address").required("Required"),
       message: Yup.string().required("Required"),
-      Time: Yup.string().required("Please select a time"),
+      time: Yup.string().required("Please select a time"),
       payment_method: Yup.string().required("Please select a payment method"),
-      province: Yup.string().required("Please select a province"),
-      district: Yup.string().required("Please select a district"),
-      address: Yup.string().required("Please enter your address"),
+      province: Yup.string().test(
+        "Please select a province",
+        function (value) {
+          // Kiểm tra nếu phương thức giao hàng là 'delivery'
+          return this.parent.deliveryMethod === "delivery" ? (value ? true : false) : true;
+        }
+      ),
+    
+      // District
+      district: Yup.string().test(
+        "Please select a district",
+        function (value) {
+          // Kiểm tra nếu phương thức giao hàng là 'delivery' 
+          return this.parent.deliveryMethod === "delivery" ? (value ? true : false) : true;
+        }
+      ),
+    
+      // Address
+      address: Yup.string().test( //một phương thức tùy chỉnh để thêm điều kiện kiểm tra.test nhận một lỗi và một hàm kiểm tra.
+        "Please enter your address",
+        function (value) {
+          // Kiểm tra nếu phương thức giao hàng là 'delivery'
+          return this.parent.deliveryMethod === "delivery" ? (value ? true : false) : true;
+        }
+      ),
+      mycart: Yup.string().required("Please select a Cart"),
     }),
     onSubmit: async (values) => {
       console.log("Form values:", values);
       console.log("Cart Items:", values.mycart);
-
+      if (values.deliveryMethod === "pickup") {
+        delete values.province;
+        delete values.district;
+        delete values.address;
+      }
       emailjs.sendForm('service_47mcgma', 'template_7zcj6cr', form.current, 'kpl6lT7dctcVfpDD7')
-        .then((result) => {
-          console.log(result.text);
-        }, (error) => {
-          console.log(error.text);
-        });
+      .then((result) => {
+        console.log("Email sent successfully:", result);
+      }, (error) => {
+        console.error("Email sending failed:", error);
+      });
     },
   });
 
@@ -103,13 +135,13 @@ const Order = () => {
       {formik.touched.message && formik.errors.message ? <div className="error">{formik.errors.message}</div> : null}
 
       <div>
-        <label htmlFor="Time">Choose a time:</label>
-        <select name="Time" value={formik.values.Time} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+        <label htmlFor="time">Choose a time:</label>
+        <select name="time" value={formik.values.time} onChange={formik.handleChange} onBlur={formik.handleBlur}>
           <option value="" label="Select a time" />
           <option value="8AM - 9AM" label="8AM - 9AM" />
           <option value="9AM - 10AM" label="9AM - 10AM" />
         </select>
-        {formik.touched.Time && formik.errors.Time ? <div className="error">{formik.errors.Time}</div> : null}
+        {formik.touched.time && formik.errors.time ? <div className="error">{formik.errors.time}</div> : null}
       </div>
 
       <div>

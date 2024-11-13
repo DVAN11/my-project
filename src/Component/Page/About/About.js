@@ -49,17 +49,17 @@ const About = () => {
           <h2>Why Choose Us</h2>
           <Row>
             <Col md={4} className="why-choose-item">
-              <Image src="https://th.bing.com/th/id/OIP.AxWIKHMpZLq4V9pNezz43gHaEL?w=305&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Fresh Ingredients" className="icon" />
+              <img src="https://th.bing.com/th/id/OIP.AxWIKHMpZLq4V9pNezz43gHaEL?w=305&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Fresh Ingredients" className="icon" />
               <h4>Fresh Ingredients</h4>
               <p>Our dishes are made with fresh and high-quality ingredients, ensuring authentic flavors in every bite.</p>
             </Col>
             <Col md={4} className="why-choose-item">
-              <Image src="https://th.bing.com/th/id/OIP.bY-GTxSmCWt-eLhElDqOmAHaE7?w=261&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Skilled Chefs" className="icon" />
+              <img src="https://th.bing.com/th/id/OIP.bY-GTxSmCWt-eLhElDqOmAHaE7?w=261&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Skilled Chefs" className="icon" />
               <h4>Skilled Chefs</h4>
               <p>Our chefs are trained in traditional Japanese cooking techniques to bring the best experience.</p>
             </Col>
             <Col md={4} className="why-choose-item">
-              <Image src="https://hatoyama.vn/wp-content/uploads/2017/09/TANG-1-ANH-4.jpg" alt="Cozy Ambiance" className="icon" />
+              <img src="https://hatoyama.vn/wp-content/uploads/2017/09/TANG-1-ANH-4.jpg" alt="Cozy Ambiance" className="icon" />
               <h4>Cozy Ambiance</h4>
               <p>Enjoy your meal in a warm and inviting atmosphere that reflects Japanese culture.</p>
             </Col>

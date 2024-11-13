@@ -8,6 +8,8 @@ import Cart from './Component/Page/CartProduct/Cart';
 import About from './Component/Page/About/About';
 import BookingForm from './Component/Global/BookingForm/BookingForm';
 import Contact from './Component/Page/Contact/Contact';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -27,6 +29,7 @@ function App() {
       </Routes>
       <BookingForm />
       <Footer />
+      <ToastContainer />
     </>
   );
 }

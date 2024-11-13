@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import { UseCart } from '../../../Context/Context';
 import "./Booking.css";
 
 const services = [
@@ -102,6 +103,7 @@ const services = [
 ];
 
   const Booking = () => {
+    const { handleShowModalBook } = UseCart();
     return (
       <div className="booking-section">
         <Container>
@@ -120,9 +122,9 @@ const services = [
                   ></iframe>
                 </div>
                 <div className="service-offer">
-                  <p>Exclusive Offer:</p> {service.offer}
+                  <p>{service.offer}</p>
                 </div>
-                <Button className="btn-booking">Book Now</Button>
+                <Button className="btn-booking" onClick={handleShowModalBook}>Book Now</Button>
               </Col>
               <Col xs={12} md={6} className="service-details-col">
                 <h3 className="service-title">{service.title}</h3>

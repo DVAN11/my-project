@@ -21,9 +21,16 @@ label {
   margin-bottom: 5px;
   color: azure;
 }
-
 input[type="text"],
-input[type="email"],
+input[type="email"] {
+  width: 30%;
+  margin-bottom: 16px;
+  margin-right: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
 textarea,
 select {
   width: 100%;
