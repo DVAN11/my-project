@@ -5,14 +5,13 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import emailjs from 'emailjs-com';
 import { UseCart } from "../../../../Context/Context";
+import { useNavigate } from "react-router-dom";
 
 const Order = () => {
   const form = useRef();
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistricts] = useState([]);
-  const { cart } = UseCart() || { cart: [] };
-  const myCartString =  cart.map(item => `${item.title} (x${item.quantity}) - $${item.price}`).join(", ");
-  
+  const { cart, setCart } = UseCart();
   useEffect(() => {
     axios.get("https://provinces.open-api.vn/api/p/")
     .then(response => {
@@ -33,13 +32,15 @@ const Order = () => {
       })
       .catch(error => console.error("Error fetching districts:", error));
   };
-
   const handleDeliveryChange = (event) => {
     formik.setFieldValue("deliveryMethod", event.target.value);
   };
-  useEffect(() => {
-    formik.setFieldValue("mycart", myCartString);
-  }, [cart])
+  const navigate = useNavigate();
+  const myCart = cart.map(item => ({
+    title: item.title,
+    quantity: item.quantity,
+    price: item.price,
+  }));
   const formik = useFormik({
     initialValues: {
       deliveryMethod: "delivery",
@@ -51,7 +52,7 @@ const Order = () => {
       province: "",
       district: "",
       address: "",
-      mycart: "",
+      cart: myCart,
     },
     validationSchema: Yup.object({
       user_name: Yup.string().required("Required"),
@@ -84,11 +85,9 @@ const Order = () => {
           return this.parent.deliveryMethod === "delivery" ? (value ? true : false) : true;
         }
       ),
-      mycart: Yup.string().required("Please select a Cart"),
     }),
     onSubmit: async (values) => {
       console.log("Form values:", values);
-      console.log("Cart Items:", values.mycart);
       if (values.deliveryMethod === "pickup") {
         delete values.province;
         delete values.district;
@@ -96,13 +95,22 @@ const Order = () => {
       }
       emailjs.sendForm('service_47mcgma', 'template_7zcj6cr', form.current, 'kpl6lT7dctcVfpDD7')
       .then((result) => {
-        console.log("Email sent successfully:", result);
+        console.log(result.text);
+        localStorage.removeItem("FOOD");
+        setCart([]);
       }, (error) => {
-        console.error("Email sending failed:", error);
+        console.log(error.text);
       });
+      try {
+        await axios.post(`https://6716466633bc2bfe40bd3647.mockapi.io/order`, values);
+        alert("UPDATE DONE");
+        navigate("/menu");
+      } catch (error) {
+        console.error("Error occurred:", error);
+        alert("Something went wrong. Please try again.");
+      }
     },
   });
-
   return (
     <form ref={form} id="form-order" onSubmit={formik.handleSubmit}>
       <input 
@@ -114,7 +122,6 @@ const Order = () => {
         placeholder="Your Name" 
       />
       {formik.touched.user_name && formik.errors.user_name ? <div className="error">{formik.errors.user_name}</div> : null}
-      
       <input 
         type="email" 
         onChange={formik.handleChange} 

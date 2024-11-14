@@ -60,7 +60,6 @@ const Team = () => {
             </div>
             <div className="team-headline text-center">
                 <h4>EXPERIENCED TEAM</h4>
-                <p><img src="img/product/separator.png" alt="" /></p>
                 <div className="content">
                     <h2>Meet Our Chef</h2>
                 </div>

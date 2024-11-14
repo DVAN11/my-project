@@ -78,16 +78,18 @@
 }
 
 .contact-form button {
-    background-color: var(--primarycolor);
-    border: none;
-    color: white;
+    border: 1px solid var(--primarycolor);
+    background-color:transparent;
+    border-radius: 8px;
+    color: var(--primarycolor);
     font-size: 18px;
     padding: 10px 20px;
     cursor: pointer;
 }
 
 .contact-form button:hover {
-    background-color: darken(var(--primarycolor), 10%);
+    background-color: var(--primarycolor);
+    color: var(--secondarycolor);
 }
 
 @media (max-width: 767px) {

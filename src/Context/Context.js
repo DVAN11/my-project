@@ -42,7 +42,7 @@ const CartProvider = ({children}) => {
   const handleCloseModalBook = () => {
       setShowModalBook(false);
   };
-    return <CartContext.Provider value={{cart, handleAddCart, handleQuantity, handleDele, handleShowModalBook, handleCloseModalBook, showModalBook }}>{children}</CartContext.Provider>
+    return <CartContext.Provider value={{cart, handleAddCart, handleQuantity, handleDele, handleShowModalBook, handleCloseModalBook, showModalBook, setCart }}>{children}</CartContext.Provider>
 }
  const UseCart = () => {
     return useContext(CartContext);

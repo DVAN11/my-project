@@ -1,9 +1,10 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
+import { UseCart } from '../../../../../Context/Context';
 import './Best.css';
 
 const Best_seller = (props) => {
-
+    const { handleAddCart} = UseCart();
     return (
         <div className="card-food">
             <div className="food d-flex">
@@ -17,7 +18,13 @@ const Best_seller = (props) => {
                     </div>
                     <div className='des-intro'>
                         <p>{props.ingredients.join(', ')}</p>
-                        <Button>Add to cart</Button>
+                        <Button onClick={() => {handleAddCart({ 
+                            id: props.id, 
+                            imageUrl: props.imageUrl, 
+                            title: props.title, 
+                            price: props.price, 
+                            ingredients: props.ingredients }, 1)}}>Add to cart
+                        </Button>
                     </div>
                 </div>
             </div>
