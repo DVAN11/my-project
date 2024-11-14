@@ -1,103 +1,180 @@
-.contact-page {
+.contact-page-container {
     color: #f8f8f2;
     background-color: var(--secondarycolor);
     margin-top: 96px;
+    padding-bottom: 40px;
+    transition: background-color 0.5s ease;
 }
 
-.contact-banner {
+.btn-primary {
+    background-color: var(--primarycolor);
+    color: var(--secondarycolor);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-outline-primary {
+    background-color: transparent;
+    color: var(--primarycolor);
+    border: 1px solid var(--primarycolor);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover,
+  .btn-outline-primary:hover {
+    background-color: var(--secondarycolor);
+    color: var(--primarycolor);
+  }
+  
+.contact-page-banner {
     text-align: center;
     padding: 60px 20px;
     color: white;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-.contact-banner h1 {
+.contact-page-banner h1 {
     font-size: 40px;
     color: var(--primarycolor);
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    animation: slideInLeft 1s ease;
 }
 
-.contact-banner p {
-    font-size: 18px;
+.contact-page-banner p {
+    font-size: 20px;
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    animation-delay: 0.5s;
 }
 
-.contact-info {
-    padding: 40px 20px;
-}
-
-.contact-info h2 {
+.contact-page-info h2 {
     font-size: 32px;
     color: var(--primarycolor);
     margin-bottom: 20px;
 }
-
-.location-selection {
-    margin-bottom: 20px;
+.contact-location-selection button{
+    margin-right: 16px;  
+    margin-bottom: 16px;
 }
-
-.location-selection .btn {
-    margin: 0 10px;
+button .ac{
+    background-color: var(--primarycolor);
+    color: var(--secondarycolor);
 }
-
-.location-details {
-    margin-top: 20px;
-}
-
-.location-details h3 {
-    font-size: 24px;
+button .non{
+    background-color: transparent;
     color: var(--primarycolor);
-}
-
-.location-details p {
-    font-size: 18px;
-    line-height: 1.8;
-}
-
-.location-map {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-.contact-form h2 {
-    font-size: 32px;
-    color: var(--primarycolor);
-    margin-bottom: 20px;
-}
-
-.contact-form .form-group {
-    margin-bottom: 20px;
-}
-
-.contact-form .form-control {
-    font-size: 16px;
-}
-
-.contact-form button {
     border: 1px solid var(--primarycolor);
-    background-color:transparent;
-    border-radius: 8px;
+}
+.contact-page-form h2 {
+    font-size: 32px;
     color: var(--primarycolor);
-    font-size: 18px;
-    padding: 10px 20px;
-    cursor: pointer;
+    margin-bottom: 20px;
+}
+.contact-location-map{
+height: 300px;
+border-radius: 16px;
+}
+.contact-page-form .form-group {
+    margin-bottom: 20px;
 }
 
-.contact-form button:hover {
+.contact-page-form input[type="text"],
+.contact-page-form input[type="email"],
+.contact-page-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    color: azure;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    transform-origin: left center;
+    animation: zoomIn 0.6s ease;
+}
+
+.contact-page-form input[type="text"]::placeholder,
+.contact-page-form input[type="email"]::placeholder,
+.contact-page-form textarea::placeholder {
+    color: azure;
+}
+
+.contact-page-form textarea {
+    resize: vertical;
+    min-height: 200px;
+}
+
+.contact-page-form input[type="text"]:focus,
+.contact-page-form input[type="email"]:focus,
+.contact-page-form textarea:focus {
+    box-shadow: 0px 0px 10px 2px var(--primarycolor);
+    outline: none;
+    background-color: #444;
+}
+
+.contact-page-form .contact-submit-button {
+    border: 1px solid var(--primarycolor);
+    background-color: transparent;
+    border-radius: 8px;
+    color: var(--primarycolor);
+    font-size: 16px;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    animation: bounceIn 0.8s ease;
+}
+
+.contact-page-form .contact-submit-button:hover {
     background-color: var(--primarycolor);
     color: var(--secondarycolor);
 }
 
-@media (max-width: 767px) {
-    .contact-banner h1 {
-        font-size: 30px;
-    }
+.contact-page-form .contact-submit-button:active {
+    transform: scale(0.98);
+}
 
-    .contact-form button {
-        width: 100%;
-    }
+/* Thông báo lỗi */
+.contact-page-form .contact-error {
+    font-weight: 600;
+    color: red;
+    font-size: 16px;
+    margin-top: 8px;
+    animation: fadeInError 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    0% { transform: translateX(-100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.9); }
+    60% { transform: scale(1.1); }
+    80% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeInError {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
 }

@@ -1,9 +1,142 @@
 .booking-section {
   background-color: var(--secondarycolor);
-  margin-top: 140px;
-  padding: 40px 20px;
+  margin-top: 104px;
 }
 
+.service-row {
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  opacity: 0;
+  animation: fadeInUp 0.6s forwards;
+}
+
+.service-row.reverse-order {
+  flex-direction: row-reverse;
+}
+
+.service-video {
+  border: 8px solid var(--secondarycolor);
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px #aaa;
+  transition: 0.3s;
+}
+.service-video:hover {
+  box-shadow: 2px 2px 8px var(--primarycolor);
+  transform: scale(1.1);
+}
+
+.service-video-col,
+.service-details-col {
+  opacity: 0;
+  animation: slideInFromLeft 0.8s forwards;
+}
+
+.service-video-col {
+  padding: 32px;
+  transition: transform 0.3s ease-in-out;
+  animation-delay: 0.3s;
+}
+
+
+.service-details-col {
+  padding: 30px;
+  background-color: var(--secondarycolor);
+  border-radius: 12px;
+  color: azure;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: background-color 0.3s ease;
+  animation-delay: 0.5s;
+}
+
+.service-details-col:hover {
+  background-color: #444;
+}
+
+/* Các phần tử chi tiết */
+.service-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--primarycolor);
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: slideInFromLeft 0.8s forwards;
+  animation-delay: 0.6s;
+}
+
+.service-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primarycolor);
+  transition: width 0.4s ease;
+}
+
+.service-title:hover::after {
+  width: 100%;
+}
+
+.service-description {
+  font-size: 16px;
+  color: azure;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.service-offer,
+.service-highlights ul {
+  opacity: 0;
+  animation: fadeInUp 0.5s forwards;
+}
+
+.service-offer {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 32px;
+  color: var(--primarycolor);
+  animation: slideInFromLeft 0.8s forwards;
+  animation-delay: 0.5s;
+}
+
+.service-highlights ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  animation-delay: 0.6s;
+}
+
+.service-highlights li {
+  font-size: 16px;
+  color: azure;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.btn-booking {
+  color: var(--primarycolor);
+  background-color: transparent;
+  border: 1px solid var(--primarycolor);
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn-booking:hover {
+  background-color: var(--primarycolor);
+  color: var(--secondarycolor);
+  transform: scale(1.1);
+}
 /* Animation chung */
 @-webkit-keyframes slideInFromLeft {
   0% {
@@ -47,134 +180,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Định dạng chung cho các phần tử */
-.service-row {
-  margin-bottom: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  opacity: 0;
-  animation: fadeInUp 0.6s forwards;
-}
-
-.service-row.reverse-order {
-  flex-direction: row-reverse;
-}
-
-.service-video {
-  border: 10px solid var(--secondarycolor);
-  border-radius: 4px;
-  box-shadow: 2px 2px 8px rgba(140, 140, 140, 0.6);
-}
-
-.service-video-col,
-.service-details-col {
-  opacity: 0;
-  animation: slideInFromLeft 0.8s forwards;
-}
-
-.service-video-col {
-  padding: 32px;
-  transition: transform 0.3s ease-in-out;
-  animation-delay: 0.3s;
-}
-
-.service-details-col {
-  padding: 30px;
-  background-color: var(--secondarycolor);
-  border-radius: 12px;
-  color: azure;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  transition: background-color 0.3s ease;
-  animation-delay: 0.5s;
-}
-
-.service-details-col:hover {
-  background-color: #252836;
-}
-
-/* Các phần tử chi tiết */
-.service-title {
-  font-size: 26px;
-  font-weight: 600;
-  color: var(--primarycolor);
-  margin-bottom: 10px;
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  animation: slideInFromLeft 0.8s forwards;
-  animation-delay: 0.6s;
-}
-
-.service-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primarycolor);
-  transition: width 0.4s ease;
-}
-
-.service-title:hover::after {
-  width: 100%;
-}
-
-.service-description {
-  font-size: 17px;
-  color: azure;
-  line-height: 1.7;
-  margin-bottom: 20px;
-  transition: color 0.3s ease;
-}
-
-.service-offer,
-.service-highlights ul {
-  opacity: 0;
-  animation: fadeInUp 0.5s forwards;
-}
-
-.service-offer {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 32px;
-  color: var(--primarycolor);
-  animation: slideInFromLeft 0.8s forwards;
-  animation-delay: 0.5s;
-}
-
-.service-highlights ul {
-  list-style-type: disc;
-  margin-left: 20px;
-  animation-delay: 0.6s;
-}
-
-.service-highlights li {
-  font-size: 16px;
-  color: azure;
-  margin-bottom: 8px;
-  transition: color 0.3s ease;
-}
-
-/* Button booking */
-.btn-booking {
-  color: var(--primarycolor);
-  border: 1px solid var(--primarycolor);
-  padding: 10px 24px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.btn-booking:hover {
-  background-color: var(--primarycolor);
-  color: var(--secondarycolor);
-  transform: scale(1.1);
 }

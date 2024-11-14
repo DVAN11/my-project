@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import logo from "../../../../src/assets/logo.png";
 import Container from 'react-bootstrap/Container';
 import { UseCart } from '../../../Context/Context';
@@ -7,23 +7,16 @@ import "./Header.css";
 
 const Header = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [menu, setMenu] = useState(false);
-    const [tab, setTab] = useState(1);
     const { cart, handleShowModalBook } = UseCart();
-    const handleTab = (index) => {
-        setTab(index);
-        setMenu(false);
-    }
     const menuRef = useRef();
     const iconRef = useRef();
-
     const handleSearch = (e) => {
         e.preventDefault();
         navigate(`/menu/${e.target.querySelector("input").value}`);
         e.target.querySelector("input").value = "";
-        setTab(2);
     };
-
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -46,39 +39,44 @@ const Header = () => {
             document.removeEventListener("click", handleIconClick);
         };
     }, []);
-    
+
+    const getTabClass = (path) => {
+        window.scroll(0,0);
+        return location.pathname === path ? "activetab" : "";
+    };
+
     return (
         <div className="header">
             <Container>
                 <div className='header-inner'>
-                    <Link to="/" onClick={() => handleTab(1)} className={`logo ${tab === 1 ? "activetab" : ""}`}>
+                    <Link to="/"  className={`logo ${getTabClass("/")}`}>
                         <img src={logo} alt="Logo" />
                     </Link>
                     <div className="header-left">
                         <nav className={`menu ${menu ? 'active' : ''}`} ref={menuRef}>
                             <ul className="nav-links">
                                 <li>
-                                    <Link to="/" onClick={() => handleTab(1)} className={`nav-link ${tab === 1 ? "activetab" : ""}`}>
+                                    <Link to="/" className={`nav-link ${getTabClass("/")}`}>
                                         Home
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/menu" onClick={() => handleTab(2)} className={`nav-link ${tab === 2 ? "activetab" : ""}`}>
+                                    <Link to="/menu"  className={`nav-link ${getTabClass("/menu")}`}>
                                         Menu
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/service"onClick={() => handleTab(3)} className={`nav-link ${tab === 3 ? "activetab" : ""}`}>
+                                    <Link to="/service"  className={`nav-link ${getTabClass("/service")}`}>
                                         Service
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/about"onClick={() => handleTab(4)} className={`nav-link ${tab === 4 ? "activetab" : ""}`}>
+                                    <Link to="/about"  className={`nav-link ${getTabClass("/about")}`}>
                                         About
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/contact" onClick={() => handleTab(5)} className={`nav-link ${tab === 5 ? "activetab" : ""}`}>
+                                    <Link to="/contact"  className={`nav-link ${getTabClass("/contact")}`}>
                                         Contact
                                     </Link>
                                 </li>
@@ -86,7 +84,7 @@ const Header = () => {
                             <form className="search-form" onSubmit={handleSearch}>
                                 <input type="search" placeholder="What food you want?" className="search-input" />
                             </form>
-                            <Link to="#" className="btn-book"onClick={handleShowModalBook}>Booking</Link>
+                            <Link to="#" className="btn-book" onClick={handleShowModalBook}>Booking</Link>
                         </nav>
                         <div className="header-icons">
                             <Link to="/cart" className="header-icon">
@@ -95,7 +93,7 @@ const Header = () => {
                                     {cart.length < 1 ? 0 : cart.length}
                                 </div>
                             </Link>
-                            <Link to="/#" className='phone'>
+                            <Link to="/contact" className='phone'>
                                 <i className="fa-solid fa-phone"></i>
                                 <div>(+84) 939595778</div>
                             </Link>

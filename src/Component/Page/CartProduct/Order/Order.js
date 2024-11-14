@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import emailjs from 'emailjs-com';
 import { UseCart } from "../../../../Context/Context";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const Order = () => {
   const form = useRef();
@@ -95,21 +96,35 @@ const Order = () => {
       }
       emailjs.sendForm('service_47mcgma', 'template_7zcj6cr', form.current, 'kpl6lT7dctcVfpDD7')
       .then((result) => {
-        console.log(result.text);
-        localStorage.removeItem("FOOD");
-        setCart([]);
+        
       }, (error) => {
+       
         console.log(error.text);
       });
       try {
         await axios.post(`https://6716466633bc2bfe40bd3647.mockapi.io/order`, values);
-        alert("UPDATE DONE");
-        navigate("/menu");
+        
+        setTimeout(() => {
+          toast.success("Order has been confirmed", {
+            position: "top-center",
+            autoClose: 1000,
+          });
+          localStorage.removeItem("FOOD");
+          setCart([]);
+          setTimeout(() => {
+            navigate("/menu");
+          }, 2000);
+        }, 2000);
+        
       } catch (error) {
         console.error("Error occurred:", error);
-        alert("Something went wrong. Please try again.");
+        alert("Order is defective, please try again later");
+        toast.error("Order is defective, please try again later", {
+          position: "top-center",
+          autoClose: 1000,
+        });
       }
-    },
+    }
   });
   return (
     <form ref={form} id="form-order" onSubmit={formik.handleSubmit}>

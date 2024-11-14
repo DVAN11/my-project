@@ -72,9 +72,7 @@
     color: var(--primarycolor);
 }
 
-.modal-header {
-    background-color: var(--primarycolor);
-}
+
 
 .modal-title {
     font-weight: bold;

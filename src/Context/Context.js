@@ -1,4 +1,5 @@
 import { createContext, useContext,  useState } from "react";
+import { toast } from 'react-toastify';
 
 const CartContext = createContext();
 
@@ -15,7 +16,11 @@ const CartProvider = ({children}) => {
             newCart.push(product);
         }
         setCart(newCart);
-        localStorage.setItem("FOOD", JSON.stringify(newCart))
+        localStorage.setItem("FOOD", JSON.stringify(newCart));
+        toast.success(`Added to the cart!`, {
+            position: "top-center",
+            autoClose: 2000,
+          });
     }
     const handleQuantity = (type, index) => {
         const newCart = [...cart];
@@ -26,13 +31,21 @@ const CartProvider = ({children}) => {
             newCart[index].quantity = newCart[index].quantity > 1 ? newCart[index].quantity - 1 : newCart[index].quantity;
         }
         setCart(newCart);
-        localStorage.setItem("CART", JSON.stringify(newCart))
+        localStorage.setItem("CART", JSON.stringify(newCart));
+        toast.success(`Quantity changed!`, {
+            position: "top-center",
+            autoClose: 2000,
+          });
     }
     const handleDele = (index) => {
         const newCart = [...cart];
         newCart.splice(index, 1);
         setCart(newCart);
-        localStorage.setItem("CART", JSON.stringify(newCart))
+        localStorage.setItem("CART", JSON.stringify(newCart));
+        toast.error(`removed from the cart.`, {
+            position: "top-center",
+            autoClose: 2000,
+          });
     }
     const [showModalBook, setShowModalBook] = useState(false);
     const handleShowModalBook = () => {

@@ -1,19 +1,120 @@
-.modal-content {
-    top: 96px;
-    background-color: transparent;
-    border: 1px solid gray;
-    border-radius: 8px;
-    overflow: hidden;
-  }
- 
-  .btn{
-    background-color: transparent;
-    border: 1px solid var(--primarycolor);
-    color: var(--primarycolor);
-    margin: 8px 0;
+
+.bookingform-modal {
+  color: azure;
+  margin-top: 96px;
+  padding-bottom: 40px;
 }
-.btn:hover{
-    background-color: var(--primarycolor);
-    border: 1px solid var(--secondarycolor);
-    color: var(--secondarycolor);
+
+.bookingform-title {
+  color: var(--secondarycolor);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 8px;
+  animation: slideInLeft 1s ease;
+}
+
+.bookingform-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background-color: transparent;
+  border-radius: 8px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+.bookingform-input,
+.bookingform-select,
+.bookingform-textarea {
+  width: 100%;
+  height: 48px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  color: azure;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  transform-origin: left center;
+  animation: zoomIn 0.6s ease;
+}
+
+.bookingform-input::placeholder,
+.bookingform-select::placeholder,
+.bookingform-textarea::placeholder {
+  color: azure;
+}
+
+.bookingform-input:focus,
+.bookingform-select:focus,
+.bookingform-textarea:focus {
+  box-shadow: 0px 0px 10px 2px var(--primarycolor);
+  outline: none;
+  background-color: #444;
+}
+
+.bookingform-error {
+  font-weight: 600;
+  color: red;
+  font-size: 16px;
+  margin-top: 8px;
+  animation: fadeInError 0.5s ease-in-out forwards;
+}
+
+.bookingform-button {
+  border: 1px solid var(--primarycolor);
+  background-color: transparent;
+  border-radius: 8px;
+  color: var(--primarycolor);
+  font-size: 16px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  animation: bounceIn 0.8s ease;
+}
+
+.bookingform-button:hover {
+  background-color: var(--primarycolor);
+  color: var(--secondarycolor);
+}
+
+.bookingform-button:active {
+  transform: scale(0.98);
+}
+
+/* Thông báo lỗi */
+.bookingform-error {
+  font-weight: 600;
+  color: red;
+  font-size: 16px;
+  margin-top: 8px;
+  animation: fadeInError 0.5s ease-in-out forwards;
+}
+
+/* Các keyframes cho animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  0% { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.9); }
+  60% { transform: scale(1.1); }
+  80% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInError {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }

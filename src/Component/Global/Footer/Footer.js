@@ -20,7 +20,7 @@ const Footer = () => {
                     <h3>Quick Links</h3>
                     <ul>
                         <li><Link to="/menu">Menu</Link></li>
-                        <li><Link to="/reservation">Reservations</Link></li>
+                        <li><Link to="/service">Services</Link></li>
                         <li><Link to="/contact">Contact Us</Link></li>
                         <li><Link to="/about">About Us</Link></li>
                     </ul>

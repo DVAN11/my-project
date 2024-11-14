@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Container} from 'react-bootstrap';
+import {Col, Container, Row} from 'react-bootstrap';
 import Slider from 'react-slick';
 import "./ListFood.css";
 import "slick-carousel/slick/slick.css";
@@ -74,10 +74,15 @@ const ListFood = () => {
                     ))}
                 </Slider>
             </div>
-            <Container>
+            <Container fluid>
+                <Row>
                 {menu.map((item) => (
-                    <Best_seller  key={item.id} id={item.id} imageUrl={item.imageUrl} title={item.title} price={item.price} ingredients={item.ingredients}></Best_seller>
+                    <Col>
+                     <Best_seller  key={item.id} id={item.id} imageUrl={item.imageUrl} title={item.title} price={item.price} ingredients={item.ingredients}></Best_seller>
+                    </Col>
                 ))}
+                </Row>
+                
             </Container>
         </>
        
