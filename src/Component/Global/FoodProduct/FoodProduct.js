@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import { UseCart } from '../../../Context/Context';
 import './FoodProduct.css';
 
 const FoodProduct = ({ id, imageUrl, title, price, ingredients }) => {
