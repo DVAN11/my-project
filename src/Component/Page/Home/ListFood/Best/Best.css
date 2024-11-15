@@ -34,13 +34,13 @@
 }
 .des-title h5 {
     margin: 0;
-    font-size: 24px;
+    font-size: 20px;
     color: var(--primarycolor);
 }
 
 .des-title h6 {
     margin: 4px 0;
-    font-size: 20px;
+    font-size: 16px;
     color: var(--primarycolor);
 }
 .des-intro{
@@ -50,7 +50,7 @@
 .des-intro p {
     margin: 10px 0 0;
     color: azure;
-    font-size: 16px;
+    font-size: 12px;
     width: 320px;
     white-space: nowrap;
     overflow: hidden;
@@ -62,3 +62,12 @@
     color: var(--primarycolor);
     background-color: transparent;
 }
+.des-intro button:hover{
+    color: var(--secondarycolor);
+    background-color: var(--primarycolor);
+}
+@media (max-width: 576px) {
+    .des-intro p {
+        width: 150px;
+    }
+  }

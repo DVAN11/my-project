@@ -77,7 +77,7 @@ const ListFood = () => {
             <Container fluid>
                 <Row>
                 {menu.map((item) => (
-                    <Col>
+                    <Col md={12} lg={6}>
                      <Best_seller  key={item.id} id={item.id} imageUrl={item.imageUrl} title={item.title} price={item.price} ingredients={item.ingredients}></Best_seller>
                     </Col>
                 ))}
