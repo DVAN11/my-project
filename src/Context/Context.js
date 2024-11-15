@@ -31,7 +31,7 @@ const CartProvider = ({children}) => {
             newCart[index].quantity = newCart[index].quantity > 1 ? newCart[index].quantity - 1 : newCart[index].quantity;
         }
         setCart(newCart);
-        localStorage.setItem("CART", JSON.stringify(newCart));
+        localStorage.setItem("FOOD", JSON.stringify(newCart));
         toast.success(`Quantity changed!`, {
             position: "top-center",
             autoClose: 2000,
@@ -39,14 +39,21 @@ const CartProvider = ({children}) => {
     }
     const handleDele = (index) => {
         const newCart = [...cart];
-        newCart.splice(index, 1);
+        newCart.splice(index, 1); 
         setCart(newCart);
-        localStorage.setItem("CART", JSON.stringify(newCart));
-        toast.error(`removed from the cart.`, {
+        localStorage.setItem("FOOD", JSON.stringify(newCart));
+        toast.error(`Removed from the cart.`, {
             position: "top-center",
             autoClose: 2000,
-          });
-    }
+        });
+        if (newCart.length === 0) {
+            toast.info("Cart is now empty.", {
+                position: "top-center",
+                autoClose: 2000,
+            });
+        }
+    };
+    
     const [showModalBook, setShowModalBook] = useState(false);
     const handleShowModalBook = () => {
       setShowModalBook(true);
